@@ -1,16 +1,13 @@
 package com.example.tms_android_project.ui.fragments
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms_android_project.databinding.FragmentNewsBinding
+import com.example.tms_android_project.ui.adapters.RecyclerAdapter
 
 
 class NewsFragment : Fragment() {
@@ -27,15 +24,14 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initViews()
     }
 
     private fun initViews() {
         //initSpinner()
         //initListView()
+        initRecycler()
     }
-
 
     private fun initSpinner() {
         //TEST --> Simple example
@@ -49,7 +45,6 @@ class NewsFragment : Fragment() {
 
         //вызов адаптера
         //binding.spinner.setAdapter(adapter)
-
 
 
         //TEST ---> onItemSelectedListener
@@ -74,7 +69,7 @@ class NewsFragment : Fragment() {
         //binding.spinner.setSelection(2)
     }
 
-    private fun initListView(){
+    private fun initListView() {
 //        val adapter = ArrayAdapter(
 //            requireContext(),
 //            R.layout.simple_list_item_1,  resources.getStringArray(com.example.tms_android_project.R.array.cars_list)
@@ -91,5 +86,18 @@ class NewsFragment : Fragment() {
 //
 //        // Привяжем массив через адаптер к ListView
 //        binding.listView.setAdapter(adapter)
+    }
+
+    private fun initRecycler() {
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = RecyclerAdapter(listOfElements())
+        }
+    }
+
+    private fun listOfElements(): List<String> {
+        val data = mutableListOf<String>()
+        (0..100).forEach { i -> data.add("$i item") }
+        return data
     }
 }
