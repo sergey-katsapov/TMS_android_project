@@ -16,4 +16,25 @@
 
     <string name="username_text">Username:</string>
     <string name="password_text">Password:</string>
+
+
+    <!--  Test spinner -->
+    <string-array name="cars">
+        <item>Mazda</item>
+        <item>Honda</item>
+        <item>Bmw</item>
+        <item>Kia</item>
+    </string-array>
+
+    <!-- test listView -->
+    <string-array name="cars_list">
+        <item>Mazda</item>
+        <item>Honda</item>
+        <item>Bmw</item>
+        <item>Kia</item>
+        <item>Mersedes</item>
+        <item>Lada</item>
+        <item>Bentley</item>
+        <item>Rover</item>
+    </string-array>
 </resources>

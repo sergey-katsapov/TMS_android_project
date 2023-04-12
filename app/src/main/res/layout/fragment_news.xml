@@ -8,6 +8,17 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.NewsFragment">
 
+<!--    <Spinner-->
+<!--        android:id="@+id/spinner"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:entries="@array/cars" />-->
 
+
+<!--    <ListView-->
+<!--        android:id="@+id/listView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" >-->
+<!--    </ListView>-->
 
 </LinearLayout>
