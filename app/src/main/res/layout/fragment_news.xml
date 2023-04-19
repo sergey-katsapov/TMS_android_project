@@ -3,24 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="100dp"
     android:orientation="vertical"
     tools:context=".ui.fragments.NewsFragment">
 
-    <!--    <Spinner-->
-    <!--        android:id="@+id/spinner"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:entries="@array/cars" />-->
-
-    <!--    <ListView-->
-    <!--        android:id="@+id/listView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content" >-->
-    <!--    </ListView>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:background="@color/grey_100"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

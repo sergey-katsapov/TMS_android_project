@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms_android_project.R
+import com.example.tms_android_project.ui.data.models.PostModel
 
-class RecyclerAdapter(private val items: List<String>) :
+class RecyclerAdapter(private val items: List<PostModel>) :
     RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val largeTextView: TextView = itemView.findViewById(R.id.text_recycler1)
-        val smallTextView: TextView = itemView.findViewById(R.id.text_recycler2)
+        val titleTextView: TextView = itemView.findViewById(R.id.title)
+        val descriptionTextView: TextView = itemView.findViewById(R.id.description)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -23,8 +24,8 @@ class RecyclerAdapter(private val items: List<String>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
-            largeTextView.text = items[position]
-            smallTextView.text = "test"
+            titleTextView.text = items[position].title
+            descriptionTextView.text = items[position].description
         }
     }
 
