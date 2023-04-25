@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tms_android_project.R
 import com.example.tms_android_project.ui.data.models.PostModel
 
-class RecyclerAdapter(private val items: List<PostModel>) :
-    RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class RecyclerAdapter(
+    private val items: List<PostModel>,
+    private val event: (View) -> Unit
+) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.title)
@@ -19,6 +21,11 @@ class RecyclerAdapter(private val items: List<PostModel>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.recyler_item, parent, false)
+
+        itemView.setOnClickListener {
+            event(it)
+        }
+
         return MyViewHolder(itemView)
     }
 

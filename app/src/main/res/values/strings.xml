@@ -5,6 +5,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="news_fragment_label">News Fragment</string>
     <string name="login_fragment_label">Login Fragment</string>
+    <string name="about_new_fragment_label">About new Fragment</string>
 
 
     <!-- Hints -->
