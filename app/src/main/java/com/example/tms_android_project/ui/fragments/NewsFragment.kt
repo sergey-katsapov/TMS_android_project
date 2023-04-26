@@ -39,8 +39,8 @@ class NewsFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = RecyclerAdapter(
-                BaseData().elements(),
-                event = {
+                items =  BaseData().elements(),
+                onItemClickEvent = {
                     findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
                 }
             )

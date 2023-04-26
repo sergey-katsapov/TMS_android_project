@@ -10,7 +10,7 @@ import com.example.tms_android_project.ui.data.models.PostModel
 
 class RecyclerAdapter(
     private val items: List<PostModel>,
-    private val event: (View) -> Unit
+    private val onItemClickEvent: (View) -> Unit
 ) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -23,7 +23,7 @@ class RecyclerAdapter(
             .inflate(R.layout.recyler_item, parent, false)
 
         itemView.setOnClickListener {
-            event(it)
+            onItemClickEvent(it)
         }
 
         return MyViewHolder(itemView)

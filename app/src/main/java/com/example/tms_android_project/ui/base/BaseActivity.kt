@@ -12,28 +12,28 @@ import com.example.tms_android_project.ui.fragments.SecondFragment
 
 class BaseActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        binding.navigateTo.setOnClickListener {
-            replaceFragment(fragment = FirstFragment())
-        }
-
-        binding.navigateBack.setOnClickListener {
-            replaceFragment(fragment = SecondFragment())
-        }
+//        binding.navigateTo.setOnClickListener {
+//            replaceFragment(fragment = FirstFragment())
+//        }
+//
+//        binding.navigateBack.setOnClickListener {
+//            replaceFragment(fragment = SecondFragment())
+//        }
     }
 
-    private fun replaceFragment(fragment: Fragment){
-        val fragmentManager = supportFragmentManager
-        fragmentManager
-            .beginTransaction()
-            .replace(R.id.main_fragment_container, fragment)
-            .commit()
-    }
+//    private fun replaceFragment(fragment: Fragment){
+//        val fragmentManager = supportFragmentManager
+//        fragmentManager
+//            .beginTransaction()
+//            .replace(R.id.main_fragment_container, fragment)
+//            .commit()
+//    }
 }
