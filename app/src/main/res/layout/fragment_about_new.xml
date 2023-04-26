@@ -5,10 +5,12 @@
     android:orientation="vertical">
 
     <!-- TODO will be update -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <Button
+        android:id="@+id/btn_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Info about fragment"/>
+        android:text="Click on me"/>
 
 </LinearLayout>

@@ -37,4 +37,18 @@
         android:label="@string/login_fragment_label"
         tools:layout="@layout/fragment_about_new">
     </fragment>
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.tms_android_project.ui.fragments.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/first_fragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.tms_android_project.ui.fragments.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/second_fragment">
+    </fragment>
 </navigation>

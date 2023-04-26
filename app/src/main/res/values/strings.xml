@@ -7,6 +7,9 @@
     <string name="login_fragment_label">Login Fragment</string>
     <string name="about_new_fragment_label">About new Fragment</string>
 
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
 
     <!-- Hints -->
     <string name="username_edit_text_hint">Enter username</string>

@@ -2,16 +2,37 @@ package com.example.tms_android_project.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.ActivityBaseBinding
+import com.example.tms_android_project.databinding.ActivityMainBinding
+import com.example.tms_android_project.ui.fragments.FirstFragment
+import com.example.tms_android_project.ui.fragments.SecondFragment
+
 
 class BaseActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        ActivityBaseBinding.inflate(layoutInflater).also {
-            setContentView(it.root)
-            setSupportActionBar(it.toolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        binding.navigateTo.setOnClickListener {
+            replaceFragment(fragment = FirstFragment())
         }
+
+        binding.navigateBack.setOnClickListener {
+            replaceFragment(fragment = SecondFragment())
+        }
+    }
+
+    fun replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_fragment_container, fragment)
+        fragmentTransaction.commit()
     }
 }
