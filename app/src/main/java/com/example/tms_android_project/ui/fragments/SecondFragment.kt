@@ -1,16 +1,12 @@
 package com.example.tms_android_project.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.tms_android_project.R
-import com.example.tms_android_project.databinding.FirstFragmentBinding
-import com.example.tms_android_project.databinding.FragmentLoginBinding
 import com.example.tms_android_project.databinding.SecondFragmentBinding
 
 class SecondFragment : Fragment() {
@@ -22,6 +18,10 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = SecondFragmentBinding.inflate(inflater, container, false)
+
+        val bundle = this.arguments
+        Log.d("TEST_ANDROID", "${bundle?.getInt("TestArg")}")
+
         return binding.root
     }
 

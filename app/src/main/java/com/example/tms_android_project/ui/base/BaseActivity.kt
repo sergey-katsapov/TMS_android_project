@@ -29,10 +29,11 @@ class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.main_fragment_container, fragment)
-        fragmentTransaction.commit()
+        fragmentManager
+            .beginTransaction()
+            .replace(R.id.main_fragment_container, fragment)
+            .commit()
     }
 }

@@ -22,16 +22,24 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FirstFragmentBinding.inflate(inflater, container, false)
-        binding.btnFirstClick.setOnClickListener {launchNextFragment()}
+        binding.btnFirstClick.setOnClickListener {
+            launchNextFragment()
+        }
         return binding.root
     }
 
 
     private fun launchNextFragment() {
+        val bundle = Bundle()
+
+        bundle.putInt("TestArg", 1)
+
+        val fragment = SecondFragment()
+        fragment.arguments = bundle
+
         parentFragmentManager
             .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.main_fragment_container, SecondFragment())
+            .add(R.id.main_fragment_container, fragment)
             .commit()
     }
 }

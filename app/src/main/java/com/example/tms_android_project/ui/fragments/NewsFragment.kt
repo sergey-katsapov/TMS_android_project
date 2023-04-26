@@ -41,9 +41,7 @@ class NewsFragment : Fragment() {
             adapter = RecyclerAdapter(
                 BaseData().elements(),
                 event = {
-                    findNavController().apply {
-                        navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
-                    }
+                    findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
                 }
             )
         }
