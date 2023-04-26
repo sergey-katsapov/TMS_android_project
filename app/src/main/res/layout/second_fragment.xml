@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/second_fragment"
+    android:background="@color/grey_200"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <Button
         android:id="@+id/btn_second_click"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow_700"
         android:text="Click me second"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

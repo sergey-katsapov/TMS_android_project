@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:id="@+id/first_fragment"
     android:layout_height="match_parent"
+    android:background="@color/grey_500"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <Button
@@ -11,6 +12,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Click me"
+        android:backgroundTint="@color/yellow_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
