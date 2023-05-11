@@ -1,4 +1,4 @@
-package com.example.tms_android_project.ui.fragments
+package com.example.tms_android_project.ui.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

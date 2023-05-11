@@ -1,4 +1,4 @@
-package com.example.tms_android_project.ui.adapters
+package com.example.tms_android_project.ui.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms_android_project.R
-import com.example.tms_android_project.ui.data.models.PostModel
+import com.example.tms_android_project.ui.domain.models.DomainPostList
 
 class RecyclerAdapter(
-    private val items: List<PostModel>,
+    private val items: DomainPostList,
     private val onItemClickEvent: (View) -> Unit
 ) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
@@ -31,12 +31,12 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
-            titleTextView.text = items[position].title
-            descriptionTextView.text = items[position].description
+            titleTextView.text = items.posts!![position].title //TODO
+            descriptionTextView.text = items.posts[position].description
         }
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return items.posts!!.size //TODO
     }
 }

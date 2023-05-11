@@ -1,13 +1,8 @@
-package com.example.tms_android_project.ui.base
+package com.example.tms_android_project.ui.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.ActivityBaseBinding
-import com.example.tms_android_project.databinding.ActivityMainBinding
-import com.example.tms_android_project.ui.fragments.FirstFragment
-import com.example.tms_android_project.ui.fragments.SecondFragment
 
 
 class BaseActivity : AppCompatActivity() {

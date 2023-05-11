@@ -1,138 +1,135 @@
-package com.example.tms_android_project.ui.data
+package com.example.tms_android_project.ui.data.repository.remote
 
-import com.example.tms_android_project.ui.data.models.PostModel
+import com.example.tms_android_project.ui.data.remote.dto.DataPostDto
 
-open class BaseData {
+class PostsRemoteImpl() : PostsRemote {
 
-    open fun elements(): List<PostModel> {
-        val posts = mutableListOf(
-            PostModel(
+    override fun getPosts(): List<DataPostDto> =
+        mutableListOf(
+            DataPostDto(
                 id = 1,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 2,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 3,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 4,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 5,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 6,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 7,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 8,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 9,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 10,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 11,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 12,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 13,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 14,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 15,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 16,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 17,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 18,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 19,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 20,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 21,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 22,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 23,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 24,
                 title = "Test Post Title",
                 description = "Test Post Description"
             ),
-            PostModel(
+            DataPostDto(
                 id = 25,
                 title = "Test Post Title",
                 description = "Test Post Description"
             )
         )
-
-        return posts
-    }
 }
