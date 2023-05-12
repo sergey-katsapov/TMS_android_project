@@ -7,7 +7,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-//DO-7
 @Module
 @InstallIn(SingletonComponent::class)
 class RemoteRepositoryModule {

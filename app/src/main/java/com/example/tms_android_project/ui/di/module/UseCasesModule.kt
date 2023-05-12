@@ -11,7 +11,6 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 class UseCasesModule {
-
     @Provides
     fun providePostInfoUseCase(postRepository: PostRepository) =
         GetPostInfoUseCase(postRepository = postRepository)

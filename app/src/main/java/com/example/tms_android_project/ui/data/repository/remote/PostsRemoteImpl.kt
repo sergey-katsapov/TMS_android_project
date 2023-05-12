@@ -2,7 +2,7 @@ package com.example.tms_android_project.ui.data.repository.remote
 
 import com.example.tms_android_project.ui.data.remote.dto.DataPostDto
 
-class PostsRemoteImpl() : PostsRemote {
+class PostsRemoteImpl : PostsRemote {
 
     override fun getPosts(): List<DataPostDto> =
         mutableListOf(
