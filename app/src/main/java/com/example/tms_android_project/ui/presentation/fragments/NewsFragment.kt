@@ -9,27 +9,27 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms_android_project.R
-import com.example.tms_android_project.databinding.FragmentNewsBinding
+import com.example.tms_android_project.databinding.NewsFragmentBinding
 import com.example.tms_android_project.ui.domain.models.DomainPostList
 import com.example.tms_android_project.ui.presentation.adapters.RecyclerAdapter
-import com.example.tms_android_project.ui.presentation.view_models.PostsViewModel
+import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
 
 class NewsFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewsBinding
-    private var viewModel: PostsViewModel? = null
+    private lateinit var binding: NewsFragmentBinding
+    private var viewModel: NewsViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(requireActivity()).get(PostsViewModel::class.java)
+        viewModel = ViewModelProviders.of(requireActivity()).get(NewsViewModel::class.java)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsBinding.inflate(inflater, container, false);
+        binding = NewsFragmentBinding.inflate(inflater, container, false);
         return binding.root
     }
 
@@ -43,7 +43,7 @@ class NewsFragment : Fragment() {
     }
 
     private fun initRecycler() {
-       val posts =  viewModel?.postList?.value ?: DomainPostList() //TODO
+        val posts = viewModel?.postList?.value ?: DomainPostList()
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())

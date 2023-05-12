@@ -20,7 +20,7 @@ class RecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyler_item, parent, false)
+            .inflate(R.layout.post_item, parent, false)
 
         itemView.setOnClickListener {
             onItemClickEvent(it)
@@ -31,12 +31,12 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
-            titleTextView.text = items.posts!![position].title //TODO
+            titleTextView.text = items.posts[position].title
             descriptionTextView.text = items.posts[position].description
         }
     }
 
     override fun getItemCount(): Int {
-        return items.posts!!.size //TODO
+        return items.posts.size
     }
 }
