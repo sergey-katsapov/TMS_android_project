@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms_android_project.R
-import com.example.tms_android_project.ui.domain.models.DomainPostList
+import com.example.tms_android_project.ui.domain.models.DomainPost
 
 class RecyclerAdapter(
-    private val items: DomainPostList,
+    private val items: List<DomainPost>,
     private val onItemClickEvent: (View) -> Unit
 ) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
@@ -31,12 +31,12 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
-            titleTextView.text = items.posts[position].title
-            descriptionTextView.text = items.posts[position].description
+            titleTextView.text = items[position].title
+            descriptionTextView.text = items[position].publishedAt
         }
     }
 
     override fun getItemCount(): Int {
-        return items.posts.size
+        return items.size
     }
 }

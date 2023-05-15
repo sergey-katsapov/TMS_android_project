@@ -1,4 +1,4 @@
-package com.example.tms_android_project.ui.di.module
+package com.example.tms_android_project.ui.di.base
 
 import com.example.tms_android_project.ui.data.remote.api.PostsApi
 import dagger.Module
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {
-    private const val BASE_URL = "https://reqres.in"
+    private const val BASE_URL = "https://newsapi.org/v2/"
 
     @Singleton
     @Provides

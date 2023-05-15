@@ -1,75 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:background="@color/white"
-    android:layout_marginVertical="5dp"
-    android:layout_marginHorizontal="10dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <!-- scaleType  tools:text -->
     <ImageView
-        android:id="@+id/image_view"
+        android:id="@+id/bulldog"
         android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/bulldog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/bulldog" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/image_view"
-        app:layout_constraintTop_toTopOf="@id/image_view"
-        tools:text="Title" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:paddingTop="10dp"
-        android:textColor="@color/grey_200"
-        app:layout_constraintBottom_toBottomOf="@+id/title"
-        app:layout_constraintStart_toEndOf="@+id/image_view"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:text="description" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/big_test_string" />
 
-    <ImageView
-        android:id="@+id/iv_like"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_like"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@drawable/ic_like" />
-
-    <ImageView
-        android:id="@+id/iv_reply"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_reply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_comment"
-        tools:src="@drawable/ic_reply" />
-
-    <ImageView
-        android:id="@+id/iv_comment"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_comment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_like"
-        tools:src="@drawable/ic_comment" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/grey_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="@string/small_test_string" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

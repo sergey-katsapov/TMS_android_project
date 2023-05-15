@@ -21,6 +21,6 @@ class AboutNewViewModel @Inject constructor(
     }
 
     private fun getPostInfo() {
-        _postInfo.value = getPostInfoUseCase.getPostInfo()
+       // _postInfo.value = getPostInfoUseCase.getPostInfo()
     }
 }

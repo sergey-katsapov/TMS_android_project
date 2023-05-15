@@ -1,34 +1,24 @@
 package com.example.tms_android_project.ui.data.remote.api
 
-import com.example.tms_android_project.ui.data.remote.dto.MultipleResource
-import com.example.tms_android_project.ui.data.remote.dto.User
-import com.example.tms_android_project.ui.data.remote.dto.UserList
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.http.*
+import com.example.tms_android_project.ui.data.remote.dto.ResponseDto
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 interface PostsApi {
     companion object {
-        const val GET_POSTS_REQUEST = "тело_запроса"
-        const val KEY_PARAM = "key_параметр"
+        const val GET_POSTS_REQUEST = "top-headlines"
+
+        const val SOURCE_PARAM = "sources"
+        const val KEY_PARAM = "apiKey"
+
+        const val API_KEY = "79e587936f2646a58099a6fb18cd29eb"
+        const val SOURCE_CONST = "techcrunch"
     }
 
-    //TODO suspend - объясню позже
-    @GET("/api/unknown")
-    open fun doGetListResources(): Call<MultipleResource?>?
-
-    @POST("/api/users")
-    fun createUser(@Body user: User?): Response<User?>?
-
-    @GET("/api/users?")
-    open fun doGetUserList(@Query("page") page: String?): Call<UserList?>?
-
-    @FormUrlEncoded
-    @POST("/api/users?")
-    fun doCreateUserWithField(
-        @Field("name") name: String?,
-        @Field("job") job: String?
-    ): Response<UserList?>?
-
+    @GET(GET_POSTS_REQUEST)
+    suspend fun getLatestNews(
+        @Query(SOURCE_PARAM) source: String = SOURCE_CONST,
+        @Query(KEY_PARAM) apiKey: String = API_KEY
+    ): ResponseDto
 }

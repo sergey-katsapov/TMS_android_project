@@ -21,6 +21,11 @@
     <string name="username_text">Username:</string>
     <string name="password_text">Password:</string>
 
+    <!-- Test string -->
+    <string name="big_test_string">test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</string>
+    <string name="small_test_string">test test test test</string>
+
+
 
     <!--  Test spinner -->
     <string-array name="cars">

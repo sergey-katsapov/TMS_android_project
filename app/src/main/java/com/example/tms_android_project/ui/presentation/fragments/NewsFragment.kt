@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.NewsFragmentBinding
-import com.example.tms_android_project.ui.domain.models.DomainPostList
+import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.adapters.RecyclerAdapter
 import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,17 +26,23 @@ class NewsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = NewsFragmentBinding.inflate(inflater, container, false);
+        binding = NewsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initRecycler()
+        super.onViewCreated(view, savedInstanceState)
+
+        observePosts()
     }
 
-    private fun initRecycler() {
-        val posts = viewModel.postList.value ?: DomainPostList()
+    private fun observePosts() {
+        viewModel.postList.observe(viewLifecycleOwner) { posts ->
+            initRecycler(posts)
+        }
+    }
 
+    private fun initRecycler(posts: List<DomainPost>) {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = RecyclerAdapter(
