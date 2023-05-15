@@ -8,7 +8,6 @@ import com.example.tms_android_project.ui.domain.use_cases.PostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-//DO-11
 @HiltViewModel
 class NewsViewModel @Inject constructor(
     private val postsUseCase: PostsUseCase
@@ -22,7 +21,6 @@ class NewsViewModel @Inject constructor(
     }
 
     private fun getPosts() {
-        //DO-12
         _postList.value = postsUseCase.getPosts()
     }
 }

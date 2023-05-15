@@ -5,7 +5,6 @@ import com.example.tms_android_project.ui.domain.repositories.PostRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
-//DO-10
 @Singleton
 class PostsUseCase @Inject constructor(
     private val postRepository: PostRepository

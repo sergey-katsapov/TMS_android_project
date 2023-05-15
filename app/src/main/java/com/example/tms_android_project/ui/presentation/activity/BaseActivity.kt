@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tms_android_project.databinding.ActivityBaseBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-//DO-7
 @AndroidEntryPoint
 class BaseActivity : AppCompatActivity() {
 

@@ -13,13 +13,10 @@ import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.view_models.AboutNewViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-//DO-8
 @AndroidEntryPoint
 class AboutNewFragment : Fragment() {
 
-    //DO-13
     private lateinit var binding: PostFragmentBinding
-    //private var viewModel: AboutNewViewModel? = null
 
     private val viewModel: AboutNewViewModel by viewModels()
 
@@ -27,7 +24,6 @@ class AboutNewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //viewModel = ViewModelProvider(owner = this)[AboutNewViewModel::class.java]
         binding = PostFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -1,8 +1,17 @@
 package com.example.tms_android_project.ui.data.repository.remote
 
+import com.example.tms_android_project.ui.data.remote.api.PostsApi
 import com.example.tms_android_project.ui.data.remote.dto.DataPostDto
+import com.example.tms_android_project.ui.data.remote.dto.UserList
+import retrofit2.Call
+import javax.inject.Inject
 
-class PostsRemoteImpl : PostsRemote {
+class PostsRemoteImpl  @Inject constructor(
+    private val postsApi: PostsApi
+) : PostsRemote {
+
+    override fun doGetUserList(): Call<UserList?>? =
+        postsApi.doGetUserList(page = "1")
 
     override fun getPosts(): List<DataPostDto> =
         mutableListOf(

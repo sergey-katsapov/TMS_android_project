@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    //DO-4
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
@@ -10,6 +9,7 @@ android {
     namespace 'com.example.tms_android_project'
     compileSdk 33
 
+    "79e587936f2646a58099a6fb18cd29eb"
     defaultConfig {
         applicationId "com.example.tms_android_project"
         minSdk 28
@@ -54,8 +54,23 @@ dependencies {
     //Lifecycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
-    //DO-3
     //Dagger - Hilt
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-compiler:2.44'
+
+    //DO-1
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+
+
+    //OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+    implementation 'com.squareup.okio:okio:2.6.0'
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
+
+//    implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'

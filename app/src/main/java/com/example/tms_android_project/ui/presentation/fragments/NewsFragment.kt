@@ -20,7 +20,6 @@ class NewsFragment : Fragment() {
 
     private lateinit var binding: NewsFragmentBinding
 
-    //DO-1
     private val viewModel: NewsViewModel by viewModels()
 
     override fun onCreateView(
