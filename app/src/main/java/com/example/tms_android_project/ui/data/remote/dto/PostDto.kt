@@ -1,5 +1,6 @@
 package com.example.tms_android_project.ui.data.remote.dto
 
+import com.example.tms_android_project.ui.data.local.Post
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.google.gson.annotations.SerializedName
 
@@ -22,6 +23,14 @@ data class PostDto(
 
 fun PostDto.toDomainPost() =
     DomainPost(
+        title = title,
+        description = description,
+        url = url,
+        urlToImage = urlToImage,
+        publishedAt = publishedAt
+    )
+fun PostDto.toLocalPost() =
+    Post(
         title = title,
         description = description,
         url = url,
