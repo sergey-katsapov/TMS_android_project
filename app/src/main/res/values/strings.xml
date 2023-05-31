@@ -11,7 +11,6 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
 
-
     <!-- Hints -->
     <string name="username_edit_text_hint">Enter username</string>
     <string name="password_edit_text_hint">Enter password</string>
@@ -25,8 +24,6 @@
     <!-- Test string -->
     <string name="big_test_string">test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</string>
     <string name="small_test_string">test test test test</string>
-
-
 
     <!--  Test spinner -->
     <string-array name="cars">
