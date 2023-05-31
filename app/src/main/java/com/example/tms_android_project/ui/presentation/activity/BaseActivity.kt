@@ -8,11 +8,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BaseActivity : AppCompatActivity() {
 
+    //DO-2 создаем переменную, которую позже будем проинициализировать
     private lateinit var binding: ActivityBaseBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //DO-3 вызываем статический метод
         binding = ActivityBaseBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
     }
 }

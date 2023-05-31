@@ -9,7 +9,6 @@ android {
     namespace 'com.example.tms_android_project'
     compileSdk 33
 
-    "79e587936f2646a58099a6fb18cd29eb"
     defaultConfig {
         applicationId "com.example.tms_android_project"
         minSdk 28
@@ -26,15 +25,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    //DO-1 Подключаем view binding
     buildFeatures {
         viewBinding true
+        //DO-6
+        dataBinding true
     }
 }
 
@@ -58,7 +63,6 @@ dependencies {
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-compiler:2.44'
 
-    //DO-1
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'

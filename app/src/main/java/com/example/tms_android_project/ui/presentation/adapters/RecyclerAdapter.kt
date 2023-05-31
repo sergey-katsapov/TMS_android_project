@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms_android_project.R
+import com.example.tms_android_project.databinding.PostItemBinding
 import com.example.tms_android_project.ui.domain.models.DomainPost
 
 class RecyclerAdapter(
@@ -13,20 +14,37 @@ class RecyclerAdapter(
     private val onItemClickEvent: (View) -> Unit
 ) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleTextView: TextView = itemView.findViewById(R.id.title)
-        val descriptionTextView: TextView = itemView.findViewById(R.id.description)
+    //DO-4 работаем с холдером, проносим сюда view binding
+//    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+//        val titleTextView: TextView = itemView.findViewById(R.id.title)
+//        val descriptionTextView: TextView = itemView.findViewById(R.id.description)
+//    }
+
+    class MyViewHolder(itemPersonBinding: PostItemBinding) : RecyclerView.ViewHolder(itemPersonBinding.root) {
+        val titleTextView: TextView = itemPersonBinding.title
+        val descriptionTextView: TextView = itemPersonBinding.description
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.post_item, parent, false)
+        //DO-5 работаем с view-holder, проносим сюда view binding
 
-        itemView.setOnClickListener {
+//        val itemView = LayoutInflater.from(parent.context)
+//            .inflate(R.layout.post_item, parent, false)
+//
+//        itemView.setOnClickListener {
+//            onItemClickEvent(it)
+//        }
+//
+//        return MyViewHolder(itemView)
+
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemPersonBinding = PostItemBinding.inflate(layoutInflater, parent, false)
+
+        itemPersonBinding.root.setOnClickListener {
             onItemClickEvent(it)
         }
 
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemPersonBinding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

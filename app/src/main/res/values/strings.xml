@@ -6,6 +6,8 @@
     <string name="news_fragment_label">News Fragment</string>
     <string name="login_fragment_label">Login Fragment</string>
     <string name="about_new_fragment_label">About new Fragment</string>
+    <string name="binding_fragment_label">Binding Fragment</string>
+    <string name="test_equals">TMS</string>
     <string name="test_fragment_label">Test Fragment</string>
 
     <string name="first_fragment_label">First Fragment</string>
