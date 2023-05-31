@@ -8,6 +8,7 @@ import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.domain.use_cases.PostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,6 +26,8 @@ class NewsViewModel @Inject constructor(
     }
 
     private suspend fun getPosts() {
+        Timber.tag("TAG_ANDROID").e("igor ne spi")
+
          _postList.value = postsUseCase.getPosts()
     }
 }

@@ -2,7 +2,7 @@ package com.example.tms_android_project.ui.di.base
 
 import android.content.Context
 import androidx.room.Room
-import com.example.tms_android_project.ui.data.local.Post
+import com.example.tms_android_project.ui.data.local.PostEntity
 import com.example.tms_android_project.ui.data.local.PostsDatabase
 import dagger.Module
 import dagger.Provides
@@ -24,7 +24,7 @@ object DataBaseModule {
             context, PostsDatabase::class.java,
             "posts_db"
         )
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration() //TODO will be discuss
             .build()
 
     @Provides
@@ -32,5 +32,5 @@ object DataBaseModule {
     fun provideDao(db: PostsDatabase) = db.postsDao()
 
     @Provides
-    fun provideEntity() = Post()
+    fun provideEntity() = PostEntity()
 }

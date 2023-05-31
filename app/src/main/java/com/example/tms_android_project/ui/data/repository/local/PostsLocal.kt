@@ -1,13 +1,13 @@
 package com.example.tms_android_project.ui.data.repository.local
 
-import com.example.tms_android_project.ui.data.local.Post
+import com.example.tms_android_project.ui.data.local.PostEntity
 
 interface PostsLocal {
-     suspend fun getLocalPosts(): List<Post>?
+     suspend fun getLocalPosts(): List<PostEntity>?
 
-     suspend fun insertPost(post: Post)
+     suspend fun insertPost(postEntity: PostEntity)
 
-     suspend fun deletePost(post: Post)
+     suspend fun deletePost(postEntity: PostEntity)
 
-     suspend fun updatePost(post: Post)
+     suspend fun updatePost(postEntity: PostEntity)
 }

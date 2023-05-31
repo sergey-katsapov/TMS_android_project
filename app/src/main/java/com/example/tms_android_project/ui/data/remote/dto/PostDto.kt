@@ -1,6 +1,6 @@
 package com.example.tms_android_project.ui.data.remote.dto
 
-import com.example.tms_android_project.ui.data.local.Post
+import com.example.tms_android_project.ui.data.local.PostEntity
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.google.gson.annotations.SerializedName
 
@@ -30,7 +30,7 @@ fun PostDto.toDomainPost() =
         publishedAt = publishedAt
     )
 fun PostDto.toLocalPost() =
-    Post(
+    PostEntity(
         title = title,
         description = description,
         url = url,
