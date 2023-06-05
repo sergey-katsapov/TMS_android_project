@@ -41,9 +41,8 @@ class NewsFragment : Fragment() {
             adapter = RecyclerAdapter(
                 BaseData().elements(),
                 event = {
-                    findNavController().apply {
-                        navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
-                    }
+                    //TODO Android
+                    findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
                 }
             )
         }
