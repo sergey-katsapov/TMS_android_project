@@ -11,8 +11,6 @@ import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.FragmentNewsBinding
 import com.example.tms_android_project.ui.adapters.RecyclerAdapter
 import com.example.tms_android_project.ui.data.BaseData
-import androidx.navigation.fragment.findNavController
-
 
 class NewsFragment : Fragment() {
 
@@ -41,9 +39,8 @@ class NewsFragment : Fragment() {
             adapter = RecyclerAdapter(
                 BaseData().elements(),
                 event = {
-                    findNavController().apply {
-                        navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
-                    }
+                    //TODO Sergey
+                    findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
                 }
             )
         }
