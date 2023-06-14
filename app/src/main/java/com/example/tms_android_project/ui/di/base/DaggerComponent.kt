@@ -20,13 +20,14 @@ import javax.inject.Singleton
     UseCasesModule::class,
     ViewModelModule::class
 ])
-
 internal interface  DaggerComponent {
 
     fun inject(fragment: NewsFragment)
 
     fun inject(fragment: AboutNewFragment)
 
+
+    //Пока сильно не заострять внимание!
     @Component.Factory
     interface Factory {
         fun create(@BindsInstance application: Application): DaggerComponent

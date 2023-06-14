@@ -28,6 +28,7 @@ class NewsFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     private var _viewModel: NewsViewModel? = null
+
     private val viewModel: NewsViewModel
         get() = _viewModel ?: throw IllegalStateException("Нет вью модели")
 

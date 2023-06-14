@@ -13,6 +13,7 @@ import dagger.Provides
 import dagger.multibindings.IntoMap
 import javax.inject.Singleton
 
+//Пока сильно не заострять внимание!
 @Module
 interface ViewModelModule {
 
