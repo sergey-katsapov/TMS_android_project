@@ -7,7 +7,9 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
@@ -30,14 +32,15 @@ class AnimationCard @JvmOverloads constructor(
     private var scope: CoroutineScope = CoroutineScope(Dispatchers.Main)
 
     private val linePaint = Paint().apply {
-        strokeWidth = 2f
+        strokeWidth = 4f
         color = ContextCompat.getColor(context, R.color.black)
     }
 
     private var rollingEndListener: (Int) -> Unit = {}
 
     init {
-        setWillNotDraw(false) //рисует линицю которую мы указали в инициализации перед анимацией
+        setWillNotDraw(true)
+    //рисует линицю которую мы указали в инициализации перед анимацией
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -95,12 +98,12 @@ class AnimationCard @JvmOverloads constructor(
 
         ObjectAnimator.ofFloat(measuredWidth.toFloat(), lastCircleRightX.toFloat()).apply {
             duration = ANIMATION_DURATION
-           // interpolator = LinearInterpolator()
+            interpolator = LinearInterpolator()
 
             addUpdateListener {
                 val value = it.animatedValue as? Float ?: 0f //изменение позиции
                 circle.x = value //движение монетки
-                circle.rotation = value  //вращение монетки  * 4
+                circle.rotation = value * 7 //вращение монетки  * 4
                 //Устанавливает градусы, на которые вид поворачивается вокруг точки поворота. Увеличение значений
                 //     * приводит к вращению по часовой стрелке.
             }
@@ -135,7 +138,7 @@ class AnimationCard @JvmOverloads constructor(
     }
 
     private companion object{
-        private const val ANIMATION_DURATION = 700L
+        private const val ANIMATION_DURATION = 1200L
         private const val ANIMATION_DELAY = 150L
         private const val PADDING = 6
         private const val SPACE = 4

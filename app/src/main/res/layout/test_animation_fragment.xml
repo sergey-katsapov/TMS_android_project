@@ -8,6 +8,17 @@
     android:background="@drawable/login_background"
     tools:context=".ui.presentation.fragments.LoginFragment">
 
+<!--    <ImageView-->
+<!--        android:id="@+id/icTest"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_comment"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <com.example.tms_android_project.ui.presentation.custom.AnimationCard
         android:id="@+id/koinView"
         android:layout_width="match_parent"
