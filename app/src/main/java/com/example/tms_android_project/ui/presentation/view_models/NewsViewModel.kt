@@ -6,11 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.domain.use_cases.PostsUseCase
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class NewsViewModel @Inject constructor(
     private val postsUseCase: PostsUseCase
 ) : ViewModel() {

@@ -9,16 +9,31 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.PostFragmentBinding
+import com.example.tms_android_project.ui.di.base.DaggerDaggerComponent
+import com.example.tms_android_project.ui.di.module.ViewModelFactory
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.view_models.AboutNewViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
+import java.lang.IllegalStateException
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class AboutNewFragment : Fragment() {
 
     private lateinit var binding: PostFragmentBinding
 
-    private val viewModel: AboutNewViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private var _viewModel: AboutNewViewModel? = null
+    private val viewModel: AboutNewViewModel
+        get() = _viewModel ?: throw IllegalStateException("Нет вью модели")
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.application?.let { DaggerDaggerComponent.factory().create(it).inject(this) }
+        _viewModel = viewModelFactory.create(AboutNewViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

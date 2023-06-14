@@ -6,21 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.NewsFragmentBinding
+import com.example.tms_android_project.ui.di.base.DaggerDaggerComponent
+import com.example.tms_android_project.ui.di.module.ViewModelFactory
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.adapters.RecyclerAdapter
 import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import java.lang.IllegalStateException
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class NewsFragment : Fragment() {
 
     private lateinit var binding: NewsFragmentBinding
 
-    private val viewModel: NewsViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private var _viewModel: NewsViewModel? = null
+    private val viewModel: NewsViewModel
+        get() = _viewModel ?: throw IllegalStateException("Нет вью модели")
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.application?.let { DaggerDaggerComponent.factory().create(it).inject(this) }
+        _viewModel = viewModelFactory.create(NewsViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

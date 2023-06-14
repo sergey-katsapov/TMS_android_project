@@ -3,8 +3,6 @@ package com.example.tms_android_project.ui.di.base
 import com.example.tms_android_project.ui.data.remote.api.PostsApi
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
 object ApiModule {
 
     private const val BASE_URL = "https://newsapi.org/v2/"
