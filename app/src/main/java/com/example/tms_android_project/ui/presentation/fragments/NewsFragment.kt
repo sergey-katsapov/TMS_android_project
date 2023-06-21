@@ -7,13 +7,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.registerReceiver
-import androidx.core.view.ContentInfoCompat.Flags
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.NewsFragmentBinding
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.adapters.RecyclerAdapter
@@ -21,6 +17,7 @@ import com.example.tms_android_project.ui.presentation.custom.InternetChangeRece
 import com.example.tms_android_project.ui.presentation.custom.ModeChangeReceiver
 import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Calendar
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
@@ -63,13 +60,29 @@ class NewsFragment : Fragment() {
         }
     }
 
+    private fun testUiTread(){
+        val runnable = Runnable {
+
+            val hours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+            val minutes = Calendar.getInstance().get(Calendar.MINUTE)
+            val seconds = Calendar.getInstance().get(Calendar.SECOND)
+
+            val time = "$hours:$minutes:$seconds"
+            binding.testTextView.text = time
+        }
+
+        val thread = Thread(runnable)
+        thread.start()
+    }
+
     private fun initRecycler(posts: List<DomainPost>) {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = RecyclerAdapter(
                 items = posts,
                 onItemClickEvent = {
-                    findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
+                    testUiTread()
+                   // findNavController().navigate(R.id.action_NewsFragment_to_NewsInfoFragment)
                 }
             )
         }
