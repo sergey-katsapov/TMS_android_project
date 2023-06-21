@@ -67,6 +67,16 @@ class NewsFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        activity?.let { fragmentActivity ->
+            with(fragmentActivity) {
+                unregisterReceiver(InternetChangeReceiver())
+                unregisterReceiver(ModeChangeReceiver())
+            }
+        }
+    }
+
     private fun testUiTread(){
         val runnable = Runnable {
 
