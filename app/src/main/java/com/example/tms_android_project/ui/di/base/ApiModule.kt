@@ -37,9 +37,9 @@ object ApiModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit
             .Builder()
-            .addConverterFactory(GsonConverterFactory.create()) //add json converter
-            .baseUrl(BASE_URL) //base url
-            .client(okHttpClient) //okHttp client
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
             .build()
 
     @Singleton

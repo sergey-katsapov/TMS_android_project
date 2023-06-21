@@ -8,7 +8,6 @@ import javax.inject.Inject
 class PostsLocalImpl@Inject constructor(
     private val postsDao: PostsDao
 ) : PostsLocal {
-
     override suspend fun getLocalPosts(): List<PostEntity>? = postsDao.getAll()
 
     override suspend fun insertPost(postEntity: PostEntity) {

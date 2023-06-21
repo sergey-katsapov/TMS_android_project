@@ -24,7 +24,7 @@ object DataBaseModule {
             context, PostsDatabase::class.java,
             "posts_db"
         )
-            .fallbackToDestructiveMigration() //TODO will be discuss
+            .fallbackToDestructiveMigration()
             .build()
 
     @Provides
