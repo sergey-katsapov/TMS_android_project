@@ -4,6 +4,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +21,8 @@ import com.example.tms_android_project.ui.presentation.custom.ModeChangeReceiver
 import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
+import java.util.Timer
+import java.util.TimerTask
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
@@ -25,6 +30,7 @@ class NewsFragment : Fragment() {
     private lateinit var binding: NewsFragmentBinding
 
     private val viewModel: NewsViewModel by viewModels()
+    private var isTimerRunning: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +46,7 @@ class NewsFragment : Fragment() {
         airplaneModeReceiver()
         internetModeReceiver()
 
+        startTimer()
         observePosts()
     }
 
@@ -75,6 +82,18 @@ class NewsFragment : Fragment() {
         thread.start()
     }
 
+     private fun startTimer() {
+         object : CountDownTimer(SECONDS, ONE_SECOND) {
+             override fun onTick(millisUntilFinished: Long) {
+                 binding.testTextView.text = (TIMER + millisUntilFinished / 1000)
+             }
+
+             override fun onFinish() {
+                 binding.testTextView.text = FINISH
+             }
+         }.start()
+     }
+
     private fun initRecycler(posts: List<DomainPost>) {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -86,5 +105,12 @@ class NewsFragment : Fragment() {
                 }
             )
         }
+    }
+
+    companion object {
+        private const val FINISH = "finish"
+        private const val TIMER = "timer:"
+        private const val SECONDS = 30000L
+        private const val ONE_SECOND = 1000L
     }
 }
