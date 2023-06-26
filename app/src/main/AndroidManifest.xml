@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:name=".ui.presentation.activity.HiltApplication"
@@ -27,5 +28,11 @@
             </intent-filter>
         </activity>
 
+        <!--<service android:name=".ui.presentation.custom.MusicService"/>-->
+
+        <service
+            android:name=".ui.presentation.custom.MusicService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 </manifest>
