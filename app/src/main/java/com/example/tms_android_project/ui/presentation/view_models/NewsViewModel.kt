@@ -1,14 +1,16 @@
 package com.example.tms_android_project.ui.presentation.view_models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.domain.use_cases.PostsUseCase
+import com.example.tms_android_project.ui.presentation.models.NewsScreenUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,18 +18,38 @@ class NewsViewModel @Inject constructor(
     private val postsUseCase: PostsUseCase
 ) : ViewModel() {
 
-    private val _postList = MutableLiveData<List<DomainPost>>()
-    val postList: LiveData<List<DomainPost>> = _postList
+    private val eventFlow: MutableStateFlow<Event> = MutableStateFlow(value = Event.Default)
+    private val newsScreenUiState = MutableStateFlow(value = NewsScreenUiState(isProgressVisible = false))
 
-    init {
+    internal fun getScreenStream(): Flow<NewsScreenUiState> = newsScreenUiState
+    internal fun getEventsStream(): Flow<Event> = eventFlow
+
+    fun uploadPosts(){
         viewModelScope.launch {
-            getPosts()
+            updateProgressVisibilityState(isVisible = true)
+
+            viewModelScope.launch {
+                delay(POST_LOADING_DELAY)
+                onEventHandled(event = Event.InitRecycler(list = postsUseCase.getPosts()))
+                updateProgressVisibilityState(isVisible = false)
+            }
         }
     }
 
-    private suspend fun getPosts() {
-        Timber.tag("TAG_ANDROID").e("igor ne spi")
+    private fun updateProgressVisibilityState(isVisible: Boolean) {
+        newsScreenUiState.update { screenUiState ->
+            screenUiState.copy(isProgressVisible = isVisible)
+        }
+    }
 
-         _postList.value = postsUseCase.getPosts()
+    private fun onEventHandled(event: Event) = viewModelScope.launch { eventFlow.emit(event) }
+
+    internal sealed class Event {
+        object Default : Event()
+        data class InitRecycler(val list: List<DomainPost>) : Event()
+    }
+
+    private companion object {
+        private const val POST_LOADING_DELAY = 3000L
     }
 }

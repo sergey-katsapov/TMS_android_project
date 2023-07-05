@@ -6,6 +6,4 @@ import com.example.tms_android_project.ui.data.remote.dto.PostDto
 interface PostRepository {
     suspend fun getPosts(): List<PostDto>
     suspend fun getLocalPosts(): List<PostEntity>
-
-    suspend fun getPostInfoFromLocal() : PostEntity?
 }

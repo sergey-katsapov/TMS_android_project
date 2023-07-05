@@ -14,24 +14,16 @@ class PostsRepositoryImpl @Inject constructor(
     private val postsRemote: PostsRemote,
     private val postsLocal: PostsLocal
 ) : PostRepository {
-    override suspend fun getPosts(): List<PostDto> {
-        //список подгруженный с сервера
-        val postList = postsRemote.getPosts().posts.orEmpty()
 
-        //проход по этому списку и добавление в базу данных
+    override suspend fun getPosts(): List<PostDto> {
+        val postList = postsRemote.getPosts().posts.orEmpty()
         if (postList.isNotEmpty()) {
             postList.forEach { postDto ->
                 postsLocal.insertPost(postEntity = postDto.toLocalPost())
             }
         }
-
-        //вовзрат списка как и раньше в use case
         return postList
     }
 
-
     override suspend fun getLocalPosts(): List<PostEntity> = postsLocal.getLocalPosts().orEmpty()
-    override suspend fun getPostInfoFromLocal(): PostEntity? {
-        return null//TODO add logic get from database
-    }
 }
