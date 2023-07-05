@@ -26,19 +26,28 @@ class NewsViewModel @Inject constructor(
 
     fun uploadPosts(){
         viewModelScope.launch {
-            updateProgressVisibilityState(isVisible = true)
+            //включаем видимость прогресса
+            updateProgressVisibilityState(isProgressVisible = true)
 
             viewModelScope.launch {
+                //задержка, чтобы успеть показать работу прогресса
                 delay(POST_LOADING_DELAY)
-                onEventHandled(event = Event.InitRecycler(list = postsUseCase.getPosts()))
-                updateProgressVisibilityState(isVisible = false)
+
+                //запрос на получение постов
+                val list = postsUseCase.getPosts()
+
+                //это тригер ивента, о том, что обновился список и нам его надо обновить на фрагменте
+                onEventHandled(event = Event.InitRecycler(list = list))
+
+                //отключаем видимость прогресса
+                updateProgressVisibilityState(isProgressVisible = false)
             }
         }
     }
 
-    private fun updateProgressVisibilityState(isVisible: Boolean) {
+    private fun updateProgressVisibilityState(isProgressVisible: Boolean) {
         newsScreenUiState.update { screenUiState ->
-            screenUiState.copy(isProgressVisible = isVisible)
+            screenUiState.copy(isProgressVisible = isProgressVisible)
         }
     }
 

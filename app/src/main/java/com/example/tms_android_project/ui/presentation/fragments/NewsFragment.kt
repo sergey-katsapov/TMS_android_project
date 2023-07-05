@@ -41,31 +41,33 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         onObservePosts()
-        onObserveScreenStateTest()    //onObserveScreenState()
+        //onObserveScreenStateTest()
+        onObserveScreenState()
         onObserveEventState()
     }
 
     private fun onObserveEventState() {
-        viewModel.getEventsStream().observeWithLifecycle(this@NewsFragment, action = ::handleEvent)
+        viewModel.getEventsStream().observeWithLifecycle(
+            fragment = this@NewsFragment, action = ::handleEvent
+        )
     }
 
-    private fun onObserveScreenStateTest() {
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.getScreenStream().collect {
-                    handleScreenState(it)
-                }
-            }
-        }
-    }
+//    private fun onObserveScreenStateTest() {
+//        lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.getScreenStream().collect {
+//                    handleScreenState(it)
+//                }
+//            }
+//        }
+//    }
 
-    //    private fun onObserveScreenState() {
-    //        viewModel.apply {
-    //            getScreenStream().observeWithLifecycle(
-    //                fragment = this@NewsFragment,
-    //                action = ::handleScreenState)
-    //        }
-    //    }
+    private fun onObserveScreenState() {
+        viewModel.getScreenStream().observeWithLifecycle(
+            fragment = this@NewsFragment,
+            action = ::handleScreenState
+        )
+    }
 
     private fun onObservePosts() {
         viewModel.uploadPosts()
