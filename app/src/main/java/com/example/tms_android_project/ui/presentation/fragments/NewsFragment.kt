@@ -16,6 +16,7 @@ import com.example.tms_android_project.R
 import com.example.tms_android_project.databinding.NewsFragmentBinding
 import com.example.tms_android_project.ui.domain.models.DomainPost
 import com.example.tms_android_project.ui.presentation.adapters.RecyclerAdapter
+import com.example.tms_android_project.ui.presentation.custom.ObservableTester
 import com.example.tms_android_project.ui.presentation.models.NewsScreenUiState
 import com.example.tms_android_project.ui.presentation.utils.observeWithLifecycle
 import com.example.tms_android_project.ui.presentation.view_models.NewsViewModel
@@ -39,6 +40,8 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ObservableTester().test()
 
         onObservePosts()
         //onObserveScreenStateTest()
