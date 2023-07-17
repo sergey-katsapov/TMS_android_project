@@ -26,20 +26,12 @@ class NewsViewModel @Inject constructor(
 
     fun uploadPosts(){
         viewModelScope.launch {
-            //включаем видимость прогресса
             updateProgressVisibilityState(isProgressVisible = true)
 
             viewModelScope.launch {
-                //задержка, чтобы успеть показать работу прогресса
                 delay(POST_LOADING_DELAY)
-
-                //запрос на получение постов
                 val list = postsUseCase.getPosts()
-
-                //это тригер ивента, о том, что обновился список и нам его надо обновить на фрагменте
                 onEventHandled(event = Event.InitRecycler(list = list))
-
-                //отключаем видимость прогресса
                 updateProgressVisibilityState(isProgressVisible = false)
             }
         }
